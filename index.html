@@ -1,11 +1,1875 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Rudra Prasad Studio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Rudra Prasad Studio | Photography & Visual Arts</title>
+
+<meta name="description" content="Explore original photography, underwater imagery, landscapes, travel photography and cinematic visual arts by Rudra Prasad.">
+
+<meta name="author" content="Rudra Prasad">
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://studio.rudraprasad.com/">
+<link rel="icon" type="image/png" href="https://rudraprasad.com/favicon.png">
+
+<meta property="og:title" content="Rudra Prasad Studio">
+<meta property="og:description" content="Photography, visual storytelling and digital art licensing.">
+<meta property="og:url" content="https://studio.rudraprasad.com/">
+<meta property="og:image" content="https://studio.rudraprasad.com/cover.jpg">
+<meta property="og:type" content="website">
+
+<style>
+
+:root {
+    --background: #0b0b0b;
+    --surface: #151515;
+    --gold: #c9a773;
+    --white: #f5f5f5;
+    --muted: #a3a3a3;
+    --border: #292929;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--background);
+    color: var(--white);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.7;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+    cursor: pointer;
+}
+
+.container {
+    width: 92%;
+    max-width: 1400px;
+    margin: auto;
+}
+
+/* NAVIGATION */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(11,11,11,.96);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--border);
+}
+
+nav {
+    min-height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: Georgia, serif;
+    font-size: 25px;
+    letter-spacing: 3px;
+}
+
+.logo span {
+    color: var(--gold);
+}
+
+.logo small {
+    display: block;
+    font-family: Arial, sans-serif;
+    font-size: 9px;
+    letter-spacing: 5px;
+    color: var(--muted);
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+    list-style: none;
+}
+
+nav ul a {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+nav ul a:hover {
+    color: var(--gold);
+}
+
+.menu-button {
+    display: none;
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 28px;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 90vh;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.78),
+            rgba(0,0,0,.22)
+        ),
+        url("cover.jpg") center/cover;
+    display: flex;
+    align-items: center;
+}
+
+.hero-content {
+    max-width: 850px;
+    padding: 100px 0;
+}
+
+.eyebrow {
+    color: var(--gold);
+    font-size: 11px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    font-family: Georgia, serif;
+    font-weight: normal;
+    font-size: clamp(48px,8vw,110px);
+    line-height: 1.08;
+    margin: 25px 0;
+}
+
+.hero p {
+    color: #dddddd;
+    max-width: 600px;
+    font-size: 17px;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    border: 1px solid var(--gold);
+    background: var(--gold);
+    color: #111;
+    padding: 13px 28px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 5px 8px 5px 0;
+    transition: .3s;
+}
+
+.btn:hover {
+    background: #e5ca9e;
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--white);
+}
+
+.btn-outline:hover {
+    color: black;
+}
+
+/* GENERAL SECTIONS */
+
+section {
+    padding: 100px 0;
+    scroll-margin-top: 80px;
+}
+
+.section-head {
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 45px;
+}
+
+.section-head h2 {
+    font-family: Georgia, serif;
+    font-size: clamp(35px,5vw,58px);
+    font-weight: normal;
+    margin: 10px 0 15px;
+}
+
+.section-head p {
+    color: var(--muted);
+}
+
+.alt {
+    background: #111;
+}
+
+/* COLLECTION FILTERS */
+
+.filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.filter {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    padding: 10px 22px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    transition: .3s;
+}
+
+.filter:hover,
+.filter.active {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: black;
+}
+
+/* PHOTO GALLERY */
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 25px;
+}
+
+.photo-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    overflow: hidden;
+}
+
+.photo-card[hidden] {
+    display: none;
+}
+
+.image-wrap {
+    position: relative;
+    overflow: hidden;
+    background: #202020;
+    width: 100%;
+    aspect-ratio: 4/3;
+    display: block;
+    border: none;
+    padding: 0;
+}
+
+.image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .6s;
+}
+
+.image-wrap:hover img {
+    transform: scale(1.06);
+}
+
+.watermark {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    color: rgba(255,255,255,.75);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-shadow: 0 1px 4px #000;
+    pointer-events: none;
+}
+
+.category-tag {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: rgba(0,0,0,.65);
+    color: white;
+    padding: 5px 12px;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    pointer-events: none;
+}
+
+.photo-info {
+    padding: 22px;
+}
+
+.photo-info h3 {
+    font-family: Georgia, serif;
+    font-size: 25px;
+    font-weight: normal;
+    margin-bottom: 5px;
+}
+
+.photo-location {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.photo-bottom {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.price {
+    font-size: 14px;
+    color: var(--gold);
+}
+
+.view-button {
+    color: white;
+    background: transparent;
+    border: 1px solid #555;
+    padding: 8px 15px;
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+.view-button:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+}
+
+.empty-state {
+    text-align: center;
+    padding: 45px;
+    color: var(--muted);
+    border: 1px dashed var(--border);
+}
+
+/* ABOUT */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.about-image {
+    width: 100%;
+    max-height: 580px;
+    object-fit: cover;
+}
+
+.about-copy h2 {
+    font-family: Georgia, serif;
+    font-size: clamp(35px,5vw,55px);
+    font-weight: normal;
+    line-height: 1.2;
+    margin: 18px 0 28px;
+}
+
+.about-copy p {
+    color: var(--muted);
+    margin-bottom: 20px;
+}
+
+/* VIDEO PORTFOLIO */
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 25px;
+}
+
+.video-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+}
+
+.video-card video {
+    width: 100%;
+    display: block;
+    aspect-ratio: 16/9;
+    background: #000;
+}
+
+.video-info {
+    padding: 25px;
+}
+
+.video-info h3 {
+    font-family: Georgia, serif;
+    font-size: 24px;
+    font-weight: normal;
+}
+
+.video-info p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* LICENSING */
+
+.license-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 25px;
+}
+
+.license-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 35px;
+}
+
+.license-card.featured {
+    border-color: var(--gold);
+}
+
+.license-card h3 {
+    font-family: Georgia, serif;
+    font-size: 28px;
+    font-weight: normal;
+}
+
+.license-price {
+    color: var(--gold);
+    font-size: 32px;
+    margin: 20px 0;
+}
+
+.license-card ul {
+    list-style: none;
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.license-card li {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.license-card li::before {
+    content: "✓";
+    color: var(--gold);
+    margin-right: 10px;
+}
+
+/* SERVICES */
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 25px;
+}
+
+.service-card {
+    padding: 35px;
+    border: 1px solid var(--border);
+    background: #151515;
+}
+
+.service-card span {
+    color: var(--gold);
+    font-size: 35px;
+}
+
+.service-card h3 {
+    font-family: Georgia, serif;
+    font-size: 25px;
+    font-weight: normal;
+    margin: 15px 0;
+}
+
+.service-card p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* CONTACT */
+
+.contact-form {
+    max-width: 700px;
+    margin: auto;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.contact-form label {
+    display: block;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 7px;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    width: 100%;
+    color: white;
+    background: #171717;
+    border: 1px solid #333;
+    padding: 15px;
+    font: inherit;
+    margin-bottom: 20px;
+    border-radius: 0;
+}
+
+.contact-form textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+/* PHOTO PREVIEW MODAL */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.94);
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    overflow-y: auto;
+}
+
+.modal.open {
+    display: flex;
+}
+
+.modal-content {
+    position: relative;
+    width: 100%;
+    max-width: 1150px;
+    max-height: 95vh;
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    background: #151515;
+    border: 1px solid #333;
+}
+
+.modal-image {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #090909;
+}
+
+.modal-image img {
+    width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+}
+
+.modal-description {
+    padding: 40px 30px;
+}
+
+.modal-description h2 {
+    font-family: Georgia, serif;
+    font-weight: normal;
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+.modal-description p {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.modal-description select {
+    background: #222;
+    color: white;
+    border: 1px solid #444;
+    padding: 13px;
+    width: 100%;
+    margin: 20px 0;
+}
+
+.modal-price {
+    color: var(--gold);
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    z-index: 5;
+    color: white;
+    background: #222;
+    border: none;
+    width: 40px;
+    height: 40px;
+    font-size: 25px;
+}
+
+/* FOOTER */
+
+footer {
+    padding: 50px 0;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.footer-links a {
+    color: var(--gold);
+}
+
+/* MOBILE RESPONSIVE */
+
+@media(max-width:1000px) {
+
+    .gallery,
+    .license-grid,
+    .service-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .menu-button {
+        display: block;
+    }
+
+    nav ul {
+        display: none;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: #111;
+        padding: 25px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul.open {
+        display: flex;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width:600px) {
+
+    section {
+        padding: 65px 0;
+    }
+
+    .gallery,
+    .video-grid,
+    .license-grid,
+    .service-grid,
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        min-height: 80vh;
+    }
+
+    .logo {
+        font-size: 19px;
+    }
+
+    .modal {
+        padding: 12px;
+    }
+
+    .modal-content {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-description {
+        padding: 25px;
+    }
+
+    .modal-image img {
+        max-height: 45vh;
+    }
+}
+
+</style>
 </head>
+
 <body>
-    <h1>Rudra Prasad Studio</h1>
-    <h2>Photography & Visual Arts</h2>
-    <p>Coming Soon</p>
+
+<header>
+<nav class="container">
+
+    <a href="#" class="logo">
+        RUDRA PRASAD<span>.</span>
+        <small>STUDIO</small>
+    </a>
+
+    <button class="menu-button"
+            aria-label="Open navigation"
+            aria-expanded="false"
+            onclick="toggleMenu(this)">☰</button>
+
+    <ul id="navigation">
+        <li><a href="#collections">Collections</a></li>
+        <li><a href="#films">Films</a></li>
+        <li><a href="#licensing">Licensing</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+
+</nav>
+</header>
+
+<main>
+
+<!-- HERO SECTION -->
+
+<div class="hero">
+    <div class="container">
+        <div class="hero-content">
+
+            <span class="eyebrow">
+                Photography & Visual Arts
+            </span>
+
+            <h1>The World<br>Through My Lens.</h1>
+
+            <p>
+                Capturing the beauty of nature, the mysteries
+                beneath the ocean and extraordinary moments
+                through photography and cinematic storytelling.
+            </p>
+
+            <a href="#collections" class="btn">
+                Explore Collections
+            </a>
+
+            <a href="#licensing" class="btn btn-outline">
+                License Photography
+            </a>
+
+        </div>
+    </div>
+</div>
+
+<!-- PHOTOGRAPHY COLLECTION -->
+
+<section id="collections">
+<div class="container">
+
+    <div class="section-head">
+
+        <span class="eyebrow">Original Photography</span>
+
+        <h2>The Collections</h2>
+
+        <p>
+            A curated collection of photographs exploring
+            nature, wildlife, landscapes and life beyond
+            the ordinary.
+        </p>
+
+    </div>
+
+    <div class="filters" id="filters"></div>
+
+    <div class="gallery" id="gallery"></div>
+
+    <p class="empty-state" id="emptyState" hidden>
+        New photographs are being added to this collection.
+        Please visit again soon.
+    </p>
+
+</div>
+</section>
+
+<!-- ABOUT PHOTOGRAPHER -->
+
+<section id="about" class="alt">
+<div class="container about-grid">
+
+    <img src="photographer.jpg"
+         class="about-image"
+         alt="Rudra Prasad, photographer and visual storyteller"
+         loading="lazy"
+         onerror="this.style.display='none'">
+
+    <div class="about-copy">
+
+        <span class="eyebrow">Behind The Lens</span>
+
+        <h2>
+            Photographer.<br>
+            Explorer.<br>
+            Visual Storyteller.
+        </h2>
+
+        <p>
+            I am Rudra Prasad, a visual storyteller
+            from Uttarakhand, India, with a passion
+            for photography, filmmaking and exploration.
+        </p>
+
+        <p>
+            From the mountains of the Himalayas to
+            the turquoise waters of the Maldives,
+            my work reflects a fascination with nature,
+            culture and the beauty of the world around us.
+        </p>
+
+        <p>
+            Rudra Prasad Studio brings together my
+            creative work, original photography
+            and cinematic visual experiences.
+        </p>
+
+        <a href="https://life.rudraprasad.com/"
+           class="btn btn-outline">
+           Discover My Journey
+        </a>
+
+    </div>
+
+</div>
+</section>
+
+<!-- CINEMATIC VIDEOS -->
+
+<section id="films">
+<div class="container">
+
+    <div class="section-head">
+
+        <span class="eyebrow">Motion Pictures</span>
+
+        <h2>Cinematic Visuals</h2>
+
+        <p>
+            Exploring the world through movement,
+            light and cinematic storytelling.
+        </p>
+
+    </div>
+
+    <div class="video-grid">
+
+        <article class="video-card" id="film1" hidden>
+
+            <video controls playsinline preload="metadata"
+                   poster="films/underwater.jpg">
+
+                <source src="films/underwater.mp4"
+                        type="video/mp4"
+                        onerror="document.getElementById('film1').hidden=true">
+
+            </video>
+
+            <div class="video-info">
+                <h3>Beneath The Ocean</h3>
+                <p>Underwater Cinematography</p>
+            </div>
+
+        </article>
+
+        <article class="video-card" id="film2" hidden>
+
+            <video controls playsinline preload="metadata"
+                   poster="films/travel.jpg">
+
+                <source src="films/travel.mp4"
+                        type="video/mp4"
+                        onerror="document.getElementById('film2').hidden=true">
+
+            </video>
+
+            <div class="video-info">
+                <h3>Beyond The Horizon</h3>
+                <p>Travel & Nature Filmmaking</p>
+            </div>
+
+        </article>
+
+    </div>
+
+    <p id="filmEmpty" class="empty-state">
+        Cinematic film collection coming soon.
+    </p>
+
+</div>
+</section>
+
+<!-- PHOTO LICENSING -->
+
+<section id="licensing" class="alt">
+<div class="container">
+
+    <div class="section-head">
+
+        <span class="eyebrow">Collect Original Photography</span>
+
+        <h2>Photography Licensing</h2>
+
+        <p>
+            Original digital photographs for personal,
+            editorial and commercial projects.
+            All prices are in USD.
+        </p>
+
+    </div>
+
+    <div class="license-grid">
+
+        <article class="license-card">
+
+            <h3>Personal</h3>
+
+            <div class="license-price">$19.99</div>
+
+            <ul>
+                <li>High-resolution digital photograph</li>
+                <li>Personal wallpaper and display</li>
+                <li>Personal printing</li>
+                <li>Non-commercial use only</li>
+                <li>Non-exclusive license</li>
+            </ul>
+
+            <a href="#collections" class="btn">
+                Browse Photos
+            </a>
+
+        </article>
+
+        <article class="license-card featured">
+
+            <h3>Commercial</h3>
+
+            <div class="license-price">$49.99</div>
+
+            <ul>
+                <li>High-resolution digital photograph</li>
+                <li>Business website usage</li>
+                <li>Digital marketing materials</li>
+                <li>Agreed commercial usage scope</li>
+                <li>Non-exclusive license</li>
+            </ul>
+
+            <a href="#collections" class="btn">
+                Browse Photos
+            </a>
+
+        </article>
+
+        <article class="license-card">
+
+            <h3>Extended</h3>
+
+            <div class="license-price">$149.99</div>
+
+            <ul>
+                <li>Extended commercial usage</li>
+                <li>Advertising campaigns</li>
+                <li>Publication licensing</li>
+                <li>Customized usage permission</li>
+                <li>Subject to written agreement</li>
+            </ul>
+
+            <a href="#contact" class="btn">
+                Get In Touch
+            </a>
+
+        </article>
+
+    </div>
+
+    <p style="text-align:center;color:#999;margin-top:30px;font-size:13px">
+
+        Copyright remains with the photographer.
+        Resale, redistribution and transfer of original files
+        are not permitted unless expressly authorized.
+        Final licensing terms are agreed before purchase.
+
+    </p>
+
+</div>
+</section>
+
+<!-- PHOTOGRAPHY SERVICES -->
+
+<section id="services">
+<div class="container">
+
+    <div class="section-head">
+
+        <span class="eyebrow">Creative Collaborations</span>
+
+        <h2>Photography Services</h2>
+
+        <p>
+            Available for selected photography projects
+            and creative collaborations by prior arrangement.
+        </p>
+
+    </div>
+
+    <div class="service-grid">
+
+        <article class="service-card">
+
+            <span>01</span>
+
+            <h3>Portrait Photography</h3>
+
+            <p>
+                Personal portraits, lifestyle photography
+                and creative photoshoots.
+            </p>
+
+        </article>
+
+        <article class="service-card">
+
+            <span>02</span>
+
+            <h3>Resort & Hospitality</h3>
+
+            <p>
+                Architectural photography, resort imagery
+                and visual content for hospitality projects.
+            </p>
+
+        </article>
+
+        <article class="service-card">
+
+            <span>03</span>
+
+            <h3>Underwater Photography</h3>
+
+            <p>
+                Marine life, underwater environments
+                and ocean-based visual storytelling.
+            </p>
+
+        </article>
+
+        <article class="service-card">
+
+            <span>04</span>
+
+            <h3>Travel & Landscape</h3>
+
+            <p>
+                Destination photography, landscapes
+                and nature-focused creative projects.
+            </p>
+
+        </article>
+
+        <article class="service-card">
+
+            <span>05</span>
+
+            <h3>Cinematic Videography</h3>
+
+            <p>
+                Visual storytelling, short films
+                and cinematic travel content.
+            </p>
+
+        </article>
+
+        <article class="service-card">
+
+            <span>06</span>
+
+            <h3>Image & Video Licensing</h3>
+
+            <p>
+                Original visual content for publications,
+                businesses and creative professionals.
+            </p>
+
+        </article>
+
+    </div>
+
+    <div style="text-align:center;margin-top:35px">
+        <a href="#contact" class="btn">
+            Enquire About A Project
+        </a>
+    </div>
+
+</div>
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact" class="alt">
+<div class="container">
+
+    <div class="section-head">
+
+        <span class="eyebrow">Let's Create Something</span>
+
+        <h2>Get In Touch</h2>
+
+        <p>
+            For photography licensing, photoshoots,
+            creative projects and collaborations.
+        </p>
+
+    </div>
+
+    <form class="contact-form" id="contactForm">
+
+        <div class="form-row">
+
+            <div>
+                <label for="name">Your Name</label>
+                <input id="name" type="text"
+                       placeholder="Full name" required>
+            </div>
+
+            <div>
+                <label for="email">Email Address</label>
+                <input id="email" type="email"
+                       placeholder="Your email" required>
+            </div>
+
+        </div>
+
+        <label for="interest">Interested In</label>
+
+        <select id="interest" required>
+
+            <option value="">Select a service</option>
+            <option>Photography Licensing</option>
+            <option>Portrait Photoshoot</option>
+            <option>Resort Photography</option>
+            <option>Underwater Photography</option>
+            <option>Video Licensing</option>
+            <option>Creative Collaboration</option>
+            <option>Other Enquiry</option>
+
+        </select>
+
+        <label for="message">Your Message</label>
+
+        <textarea id="message"
+                  placeholder="Tell me about your requirements..."
+                  required></textarea>
+
+        <button type="submit" class="btn">
+            Send Email Enquiry
+        </button>
+
+        <p style="font-size:12px;color:#999;margin-top:15px">
+            This form opens your email application.
+        </p>
+
+        <p style="color:#aaa;margin-top:20px">
+            Email:
+            <a href="mailto:contact@rudraprasad.com"
+               style="color:#c9a773">
+               contact@rudraprasad.com
+            </a>
+        </p>
+
+    </form>
+
+</div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer>
+<div class="container">
+
+    <div class="logo">
+        RUDRA PRASAD<span>.</span>
+        <small>STUDIO</small>
+    </div>
+
+    <div class="footer-links">
+
+        <a href="https://rudraprasad.com/">
+            Professional Portfolio
+        </a>
+
+        <a href="https://life.rudraprasad.com/">
+            Personal Website
+        </a>
+
+        <a href="#licensing">Licensing</a>
+
+        <a href="#contact">Contact</a>
+
+    </div>
+
+    <p>
+        © <span id="year"></span> Rudra Prasad Studio.
+        All Rights Reserved.
+    </p>
+
+    <p style="margin-top:10px;font-size:11px">
+        All original photographs and visual content
+        are protected by copyright.
+        Unauthorized commercial use is prohibited.
+    </p>
+
+</div>
+</footer>
+
+<!-- FULL SCREEN PHOTO PREVIEW -->
+
+<div id="photoModal"
+     class="modal"
+     role="dialog"
+     aria-modal="true"
+     aria-labelledby="modalTitle">
+
+    <div class="modal-content">
+
+        <button class="modal-close"
+                aria-label="Close preview"
+                onclick="closeModal()">×</button>
+
+        <div class="modal-image">
+
+            <img id="modalImage" alt="Photograph preview">
+
+            <span class="watermark">
+                © RUDRA PRASAD STUDIO
+            </span>
+
+        </div>
+
+        <div class="modal-description">
+
+            <span class="eyebrow" id="modalCategory"></span>
+
+            <h2 id="modalTitle"></h2>
+
+            <p id="modalLocation"></p>
+
+            <p id="modalText"></p>
+
+            <p id="modalCamera"></p>
+
+            <label for="licenseSelect">Select License</label>
+
+            <select id="licenseSelect"
+                    onchange="updatePrice()">
+
+                <option value="personal">
+                    Personal License
+                </option>
+
+                <option value="commercial">
+                    Commercial License
+                </option>
+
+                <option value="extended">
+                    Extended License
+                </option>
+
+            </select>
+
+            <div class="modal-price"
+                 id="modalPrice"></div>
+
+            <button class="btn"
+                    onclick="purchasePhoto()"
+                    id="purchaseButton">
+                Enquire to Purchase
+            </button>
+
+            <p style="font-size:11px;margin-top:20px">
+                Digital photograph. No physical product
+                is included. Preview contains a watermark.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+/*
+========================================
+PHOTOGRAPH DATABASE
+
+Add new photographs here.
+
+IMPORTANT:
+Upload only compressed, watermarked
+preview photographs to GitHub.
+
+Keep original high-resolution files
+outside the public repository.
+
+Enter external checkout URLs inside
+the checkout object when available.
+========================================
+*/
+
+const photos = [
+
+    {
+        id: "RP001",
+        title: "Beneath The Blue",
+        category: "Underwater",
+        location: "Maldives",
+        image: "photos/underwater01.jpg",
+        description: "Exploring the extraordinary beauty beneath the ocean.",
+        camera: "",
+        personal: 19.99,
+        commercial: 49.99,
+        extended: 149.99,
+        checkout: {}
+    },
+
+    {
+        id: "RP002",
+        title: "Ocean Wanderer",
+        category: "Wildlife",
+        location: "Maldives",
+        image: "photos/wildlife01.jpg",
+        description: "A glimpse into the fascinating world of marine life.",
+        camera: "",
+        personal: 19.99,
+        commercial: 49.99,
+        extended: 149.99,
+        checkout: {}
+    },
+
+    {
+        id: "RP003",
+        title: "Himalayan Silence",
+        category: "Landscape",
+        location: "Uttarakhand, India",
+        image: "photos/landscape01.jpg",
+        description: "A moment of tranquillity in the magnificent Himalayas.",
+        camera: "",
+        personal: 19.99,
+        commercial: 49.99,
+        extended: 149.99,
+        checkout: {}
+    },
+
+    {
+        id: "RP004",
+        title: "Island Escape",
+        category: "Travel",
+        location: "Maldives",
+        image: "photos/travel01.jpg",
+        description: "Discovering the natural beauty of tropical island life.",
+        camera: "",
+        personal: 19.99,
+        commercial: 49.99,
+        extended: 149.99,
+        checkout: {}
+    },
+
+    {
+        id: "RP005",
+        title: "A Different Perspective",
+        category: "Aerial",
+        location: "",
+        image: "photos/aerial01.jpg",
+        description: "The world viewed from an extraordinary perspective.",
+        camera: "",
+        personal: 24.99,
+        commercial: 59.99,
+        extended: 149.99,
+        checkout: {}
+    },
+
+    {
+        id: "RP006",
+        title: "Natural Harmony",
+        category: "Nature",
+        location: "",
+        image: "photos/nature01.jpg",
+        description: "Capturing the details and colours of the natural world.",
+        camera: "",
+        personal: 19.99,
+        commercial: 49.99,
+        extended: 149.99,
+        checkout: {}
+    }
+
+];
+
+/* CONFIGURATION */
+
+const contactEmail = "contact@rudraprasad.com";
+
+const categories = [
+    "All",
+    "Underwater",
+    "Wildlife",
+    "Landscape",
+    "Nature",
+    "Travel",
+    "Aerial",
+    "Portrait",
+    "Architecture"
+];
+
+let activeCategory = "All";
+let currentPhoto = null;
+let availablePhotos = [];
+let lastFocused = null;
+
+const gallery = document.getElementById("gallery");
+const filterBox = document.getElementById("filters");
+
+/* CREATE GALLERY FILTERS */
+
+categories.forEach(category => {
+
+    const button = document.createElement("button");
+
+    button.className =
+        "filter" + (category === "All" ? " active" : "");
+
+    button.textContent = category;
+
+    button.setAttribute(
+        "aria-pressed",
+        category === "All"
+    );
+
+    button.onclick = () => {
+
+        activeCategory = category;
+
+        document.querySelectorAll(".filter")
+        .forEach(item => {
+            item.classList.remove("active");
+            item.setAttribute("aria-pressed", "false");
+        });
+
+        button.classList.add("active");
+        button.setAttribute("aria-pressed", "true");
+
+        renderGallery();
+    };
+
+    filterBox.appendChild(button);
+
+});
+
+/* VERIFY UPLOADED PHOTOS */
+
+Promise.all(
+
+    photos.map(photo => new Promise(resolve => {
+
+        const image = new Image();
+
+        image.onload = () => resolve(photo);
+
+        image.onerror = () => resolve(null);
+
+        image.src = photo.image;
+
+    }))
+
+).then(results => {
+
+    availablePhotos = results.filter(Boolean);
+
+    renderGallery();
+
+});
+
+/* RENDER PHOTO COLLECTION */
+
+function renderGallery() {
+
+    gallery.innerHTML = "";
+
+    const filtered = availablePhotos.filter(photo =>
+
+        activeCategory === "All" ||
+        photo.category === activeCategory
+
+    );
+
+    document.getElementById("emptyState").hidden =
+        filtered.length !== 0;
+
+    filtered.forEach(photo => {
+
+        const article = document.createElement("article");
+
+        article.className = "photo-card";
+
+        article.innerHTML = `
+
+            <button class="image-wrap"
+                    aria-label="View ${photo.title}">
+
+                <img src="${photo.image}"
+                     alt="${photo.title}"
+                     loading="lazy">
+
+                <span class="category-tag">
+                    ${photo.category}
+                </span>
+
+                <span class="watermark">
+                    © RUDRA PRASAD STUDIO
+                </span>
+
+            </button>
+
+            <div class="photo-info">
+
+                <h3>${photo.title}</h3>
+
+                <p class="photo-location">
+                    ${photo.location}
+                </p>
+
+                <div class="photo-bottom">
+
+                    <span class="price">
+                        From $${photo.personal.toFixed(2)}
+                    </span>
+
+                    <button class="view-button">
+                        View Photo
+                    </button>
+
+                </div>
+
+            </div>
+        `;
+
+        article.querySelectorAll("button")
+        .forEach(button => {
+
+            button.onclick = () => openModal(photo);
+
+        });
+
+        gallery.appendChild(article);
+
+    });
+
+}
+
+/* OPEN PHOTO PREVIEW */
+
+function openModal(photo) {
+
+    currentPhoto = photo;
+
+    lastFocused = document.activeElement;
+
+    const modalImage = document.getElementById("modalImage");
+
+    modalImage.src = photo.image;
+    modalImage.alt = photo.title;
+
+    document.getElementById("modalTitle").textContent =
+        photo.title;
+
+    document.getElementById("modalCategory").textContent =
+        photo.category;
+
+    document.getElementById("modalLocation").textContent =
+        photo.location + " | " + photo.id;
+
+    document.getElementById("modalText").textContent =
+        photo.description;
+
+    document.getElementById("modalCamera").textContent =
+        photo.camera ? "Camera: " + photo.camera : "";
+
+    document.getElementById("licenseSelect").value =
+        "personal";
+
+    updatePrice();
+
+    document.getElementById("photoModal")
+        .classList.add("open");
+
+    document.body.style.overflow = "hidden";
+
+    document.querySelector(".modal-close").focus();
+
+}
+
+/* UPDATE LICENSE PRICE */
+
+function updatePrice() {
+
+    if (!currentPhoto) return;
+
+    const license =
+        document.getElementById("licenseSelect").value;
+
+    const price = currentPhoto[license];
+
+    document.getElementById("modalPrice").textContent =
+        "USD $" + price.toFixed(2);
+
+    const hasCheckout =
+        currentPhoto.checkout &&
+        currentPhoto.checkout[license];
+
+    document.getElementById("purchaseButton").textContent =
+        hasCheckout ? "Buy Now" : "Enquire to Purchase";
+
+}
+
+/* PURCHASE OR SEND EMAIL ENQUIRY */
+
+function purchasePhoto() {
+
+    if (!currentPhoto) return;
+
+    const license =
+        document.getElementById("licenseSelect").value;
+
+    const checkoutUrl =
+        currentPhoto.checkout &&
+        currentPhoto.checkout[license];
+
+    if (checkoutUrl && checkoutUrl.startsWith("https://")) {
+
+        window.location.href = checkoutUrl;
+        return;
+
+    }
+
+    const subject =
+        "Photography Purchase - " + currentPhoto.id;
+
+    const body =
+
+        "Dear Rudra Prasad Studio,\n\n" +
+
+        "I am interested in purchasing the following photograph:\n\n" +
+
+        "Photo ID: " + currentPhoto.id + "\n" +
+
+        "Title: " + currentPhoto.title + "\n" +
+
+        "License: " + license + "\n" +
+
+        "Price: USD $" +
+        currentPhoto[license].toFixed(2) + "\n\n" +
+
+        "Please share the payment and licensing details.\n\n" +
+
+        "Regards";
+
+    window.location.href =
+
+        "mailto:" + contactEmail +
+
+        "?subject=" + encodeURIComponent(subject) +
+
+        "&body=" + encodeURIComponent(body);
+
+}
+
+/* CLOSE PHOTO PREVIEW */
+
+function closeModal() {
+
+    document.getElementById("photoModal")
+        .classList.remove("open");
+
+    document.body.style.overflow = "";
+
+    if (lastFocused) lastFocused.focus();
+
+}
+
+document.getElementById("photoModal")
+.addEventListener("click", event => {
+
+    if (event.target.id === "photoModal") {
+
+        closeModal();
+
+    }
+
+});
+
+document.addEventListener("keydown", event => {
+
+    if (event.key === "Escape") {
+
+        closeModal();
+
+    }
+
+    if (event.key === "Tab" &&
+        document.getElementById("photoModal")
+        .classList.contains("open")) {
+
+        const items = Array.from(
+            document.querySelectorAll(
+                ".modal button, .modal select"
+            )
+        );
+
+        const first = items[0];
+        const last = items[items.length - 1];
+
+        if (event.shiftKey &&
+            document.activeElement === first) {
+
+            event.preventDefault();
+            last.focus();
+
+        } else if (!event.shiftKey &&
+                   document.activeElement === last) {
+
+            event.preventDefault();
+            first.focus();
+
+        }
+    }
+
+});
+
+/* VIDEO AVAILABILITY */
+
+document.querySelectorAll(".video-card video")
+.forEach(video => {
+
+    video.addEventListener("loadedmetadata", () => {
+
+        video.closest(".video-card").hidden = false;
+
+        document.getElementById("filmEmpty").hidden = true;
+
+    });
+
+});
+
+/* CONTACT EMAIL FORM */
+
+document.getElementById("contactForm")
+.addEventListener("submit", event => {
+
+    event.preventDefault();
+
+    const name =
+        document.getElementById("name").value;
+
+    const email =
+        document.getElementById("email").value;
+
+    const interest =
+        document.getElementById("interest").value;
+
+    const message =
+        document.getElementById("message").value;
+
+    const body =
+
+        "Name: " + name + "\n" +
+
+        "Email: " + email + "\n" +
+
+        "Service: " + interest + "\n\n" +
+
+        message;
+
+    window.location.href =
+
+        "mailto:" + contactEmail +
+
+        "?subject=" +
+        encodeURIComponent("Studio Enquiry - " + interest) +
+
+        "&body=" + encodeURIComponent(body);
+
+});
+
+/* MOBILE MENU */
+
+function toggleMenu(button) {
+
+    const opened =
+        document.getElementById("navigation")
+        .classList.toggle("open");
+
+    button.setAttribute("aria-expanded", opened);
+
+}
+
+document.querySelectorAll("#navigation a")
+.forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        document.getElementById("navigation")
+        .classList.remove("open");
+
+        document.querySelector(".menu-button")
+        .setAttribute("aria-expanded", "false");
+
+    });
+
+});
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+</script>
+
 </body>
 </html>
