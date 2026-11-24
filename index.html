@@ -1356,93 +1356,7 @@ the checkout object when available.
 ========================================
 */
 
-const photos = [
-
-    {
-        id: "RP001",
-        title: "Beneath The Blue",
-        category: "Underwater",
-        location: "Maldives",
-        image: "photos/underwater01.jpg",
-        description: "Exploring the extraordinary beauty beneath the ocean.",
-        camera: "",
-        personal: 19.99,
-        commercial: 49.99,
-        extended: 149.99,
-        checkout: {}
-    },
-
-    {
-        id: "RP002",
-        title: "Ocean Wanderer",
-        category: "Wildlife",
-        location: "Maldives",
-        image: "photos/wildlife01.jpg",
-        description: "A glimpse into the fascinating world of marine life.",
-        camera: "",
-        personal: 19.99,
-        commercial: 49.99,
-        extended: 149.99,
-        checkout: {}
-    },
-
-    {
-        id: "RP003",
-        title: "Himalayan Silence",
-        category: "Landscape",
-        location: "Uttarakhand, India",
-        image: "photos/landscape01.jpg",
-        description: "A moment of tranquillity in the magnificent Himalayas.",
-        camera: "",
-        personal: 19.99,
-        commercial: 49.99,
-        extended: 149.99,
-        checkout: {}
-    },
-
-    {
-        id: "RP004",
-        title: "Island Escape",
-        category: "Travel",
-        location: "Maldives",
-        image: "photos/travel01.jpg",
-        description: "Discovering the natural beauty of tropical island life.",
-        camera: "",
-        personal: 19.99,
-        commercial: 49.99,
-        extended: 149.99,
-        checkout: {}
-    },
-
-    {
-        id: "RP005",
-        title: "A Different Perspective",
-        category: "Aerial",
-        location: "",
-        image: "photos/aerial01.jpg",
-        description: "The world viewed from an extraordinary perspective.",
-        camera: "",
-        personal: 24.99,
-        commercial: 59.99,
-        extended: 149.99,
-        checkout: {}
-    },
-
-    {
-        id: "RP006",
-        title: "Natural Harmony",
-        category: "Nature",
-        location: "",
-        image: "photos/nature01.jpg",
-        description: "Capturing the details and colours of the natural world.",
-        camera: "",
-        personal: 19.99,
-        commercial: 49.99,
-        extended: 149.99,
-        checkout: {}
-    }
-
-];
+let photos = [];
 
 /* CONFIGURATION */
 
@@ -1504,30 +1418,62 @@ categories.forEach(category => {
 
 });
 
-/* VERIFY UPLOADED PHOTOS */
 
-Promise.all(
+/* AUTOMATIC PHOTO DATABASE */
 
-    photos.map(photo => new Promise(resolve => {
+async function loadPhotos() {
 
-        const image = new Image();
+    try {
 
-        image.onload = () => resolve(photo);
+        const response = await fetch(
+            "photos.json?v=" + Date.now(),
+            { cache: "no-store" }
+        );
 
-        image.onerror = () => resolve(null);
+        if (!response.ok) {
+            throw new Error("Photo database unavailable");
+        }
 
-        image.src = photo.image;
+        photos = await response.json();
 
-    }))
+        const results = await Promise.all(
 
-).then(results => {
+            photos.map(photo => new Promise(resolve => {
 
-    availablePhotos = results.filter(Boolean);
+                const image = new Image();
 
-    renderGallery();
+                image.onload = () => resolve(photo);
 
-});
+                image.onerror = () => resolve(null);
 
+                image.src = photo.image;
+
+            }))
+
+        );
+
+        availablePhotos = results.filter(Boolean);
+
+        renderGallery();
+
+    } catch (error) {
+
+        console.error("Gallery loading error:", error);
+
+        const emptyState =
+            document.getElementById("emptyState");
+
+        emptyState.hidden = false;
+
+        emptyState.textContent =
+            "Unable to load photographs. Please try again later.";
+
+    }
+
+}
+
+loadPhotos();
+    
 /* RENDER PHOTO COLLECTION */
 
 function renderGallery() {
