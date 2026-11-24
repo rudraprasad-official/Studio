@@ -24,5 +24,44 @@
         "commercial": 49.99,
         "extended": 149.99,
         "checkout": {}
+    },
+    {
+        "id": "RP-DD1C59840F",
+        "title": "Leap Of Freedom",
+        "category": "Wildlife",
+        "location": "",
+        "image": "photos/wildlife-leap-of-freedom.jpg",
+        "description": "Original photography by Rudra Prasad Studio.",
+        "camera": "",
+        "personal": 19.99,
+        "commercial": 49.99,
+        "extended": 149.99,
+        "checkout": {}
+    },
+    {
+        "id": "RP-C0E800CFD3",
+        "title": "Paradise In Motion",
+        "category": "Wildlife",
+        "location": "",
+        "image": "photos/wildlife-paradise-in-motion.jpg",
+        "description": "Original photography by Rudra Prasad Studio.",
+        "camera": "",
+        "personal": 19.99,
+        "commercial": 49.99,
+        "extended": 149.99,
+        "checkout": {}
+    },
+    {
+        "id": "RP-C77AC3BA66",
+        "title": "Together In Tranquility",
+        "category": "Wildlife",
+        "location": "",
+        "image": "photos/wildlife-together-in-tranquility.jpg",
+        "description": "Original photography by Rudra Prasad Studio.",
+        "camera": "",
+        "personal": 19.99,
+        "commercial": 49.99,
+        "extended": 149.99,
+        "checkout": {}
     }
 ]
