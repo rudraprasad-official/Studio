@@ -1,0 +1,28 @@
+[
+    {
+        "id": "RP003",
+        "title": "Himalayan Silence",
+        "category": "Landscape",
+        "location": "Uttarakhand, India",
+        "image": "photos/landscape01.jpg",
+        "description": "A moment of tranquillity in the magnificent Himalayas.",
+        "camera": "",
+        "personal": 19.99,
+        "commercial": 49.99,
+        "extended": 149.99,
+        "checkout": {}
+    },
+    {
+        "id": "RP006",
+        "title": "Natural Harmony",
+        "category": "Nature",
+        "location": "",
+        "image": "photos/nature01.jpg",
+        "description": "Capturing the details and colours of the natural world.",
+        "camera": "",
+        "personal": 19.99,
+        "commercial": 49.99,
+        "extended": 149.99,
+        "checkout": {}
+    }
+]
