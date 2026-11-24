@@ -1,16 +1,15 @@
-name: Update Photography Gallery
+name: Update and Deploy Studio Gallery
 
 on:
   push:
     branches:
       - main
-    paths:
-      - 'photos/**'
-      - '.github/workflows/gallery.yml'
   workflow_dispatch:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 concurrency:
   group: studio-gallery
@@ -41,22 +40,6 @@ jobs:
           saved = {
               photo["image"]: photo
               for photo in existing
-          }
-
-          defaults = {
-              "photos/landscape01.jpg": {
-                  "id": "RP003",
-                  "title": "Himalayan Silence",
-                  "category": "Landscape",
-                  "location": "Uttarakhand, India",
-                  "description": "A moment of tranquillity in the magnificent Himalayas."
-              },
-              "photos/nature01.jpg": {
-                  "id": "RP006",
-                  "title": "Natural Harmony",
-                  "category": "Nature",
-                  "description": "Capturing the details and colours of the natural world."
-              }
           }
 
           categories = [
@@ -98,7 +81,16 @@ jobs:
                   "Nature"
               )
 
-              title = re.sub(r"[-_]+", " ", name).title()
+              clean_name = re.sub(
+                  r"^" + re.escape(category) + r"[-_]+",
+                  "",
+                  name,
+                  flags=re.IGNORECASE
+              )
+
+              title = re.sub(
+                  r"[-_]+", " ", clean_name
+              ).title()
 
               photo_id = "RP-" + hashlib.sha256(
                   path.encode()
@@ -118,11 +110,14 @@ jobs:
                   "checkout": {}
               }
 
-              photo.update(defaults.get(path, {}))
               photos.append(photo)
 
           database.write_text(
-              json.dumps(photos, indent=4, ensure_ascii=False) + "\n",
+              json.dumps(
+                  photos,
+                  indent=4,
+                  ensure_ascii=False
+              ) + "\n",
               encoding="utf-8"
           )
 
@@ -133,9 +128,37 @@ jobs:
         run: |
           git config user.name "Studio Gallery Bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
           git add photos.json
 
           if ! git diff --cached --quiet; then
             git commit -m "Automatically update photo gallery"
             git push
           fi
+
+      - name: Prepare website
+        run: |
+          mkdir -p _site
+          rsync -av \
+            --exclude='.git/' \
+            --exclude='.github/' \
+            --exclude='_site/' \
+            ./ _site/
+
+      - name: Upload website artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '_site'
+
+  deploy:
+    needs: update-gallery
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy Studio Website
+        id: deployment
+        uses: actions/deploy-pages@v4
